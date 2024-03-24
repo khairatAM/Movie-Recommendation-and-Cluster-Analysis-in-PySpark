@@ -14,4 +14,6 @@ There are four directories: Code, Data, HPC and Output.
 - Lastly, the "Data" folder holds the data on which we make analysis and perform model training. We used the MovieLens 20M Dataset accessible here: https://grouplens.org/datasets/movielens/20m/. 
 
 Note: The script files are executed from the root folder.
+
 # Movie-Recommendation-and-Cluster-Analysis-in-PySpark
+The purpose of this project is to perform ALS-based Movie Recommendation and K-Means Cluster Analysis on big data using PySpark framework.
