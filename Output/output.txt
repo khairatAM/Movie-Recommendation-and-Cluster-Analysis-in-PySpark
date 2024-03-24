@@ -1,0 +1,261 @@
+Conda uses environments to load different sets of Python packages
+type conda env list to see the environments availible.
+23/05/02 01:14:16 INFO SparkContext: Running Spark version 3.3.1
+23/05/02 01:14:16 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/05/02 01:14:16 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+23/05/02 01:14:16 INFO ResourceUtils: ==============================================================
+23/05/02 01:14:16 INFO ResourceUtils: No custom resources configured for spark.driver.
+23/05/02 01:14:16 INFO ResourceUtils: ==============================================================
+23/05/02 01:14:16 INFO SparkContext: Submitted application: Assignment Q3
+23/05/02 01:14:16 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+23/05/02 01:14:16 INFO ResourceProfile: Limiting resource is cpu
+23/05/02 01:14:16 INFO ResourceProfileManager: Added ResourceProfile id: 0
+23/05/02 01:14:16 INFO SecurityManager: Changing view acls to: acp22kam
+23/05/02 01:14:16 INFO SecurityManager: Changing modify acls to: acp22kam
+23/05/02 01:14:16 INFO SecurityManager: Changing view acls groups to: 
+23/05/02 01:14:16 INFO SecurityManager: Changing modify acls groups to: 
+23/05/02 01:14:16 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(acp22kam); groups with view permissions: Set(); users  with modify permissions: Set(acp22kam); groups with modify permissions: Set()
+23/05/02 01:14:17 INFO Utils: Successfully started service 'sparkDriver' on port 42953.
+23/05/02 01:14:17 INFO SparkEnv: Registering MapOutputTracker
+23/05/02 01:14:17 INFO SparkEnv: Registering BlockManagerMaster
+23/05/02 01:14:17 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+23/05/02 01:14:17 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+23/05/02 01:14:17 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+23/05/02 01:14:17 INFO DiskBlockManager: Created local directory at /mnt/fastdata/acp22kam/blockmgr-1355134d-151d-406b-9c4a-c56d359a3775
+23/05/02 01:14:17 INFO MemoryStore: MemoryStore started with capacity 10.5 GiB
+23/05/02 01:14:17 INFO SparkEnv: Registering OutputCommitCoordinator
+23/05/02 01:14:17 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+23/05/02 01:14:17 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+23/05/02 01:14:17 INFO Executor: Starting executor ID driver on host sharc-node173.shef.ac.uk
+23/05/02 01:14:17 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+23/05/02 01:14:17 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33997.
+23/05/02 01:14:17 INFO NettyBlockTransferService: Server created on sharc-node173.shef.ac.uk:33997
+23/05/02 01:14:17 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+23/05/02 01:14:17 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, sharc-node173.shef.ac.uk, 33997, None)
+23/05/02 01:14:17 INFO BlockManagerMasterEndpoint: Registering block manager sharc-node173.shef.ac.uk:33997 with 10.5 GiB RAM, BlockManagerId(driver, sharc-node173.shef.ac.uk, 33997, None)
+23/05/02 01:14:17 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, sharc-node173.shef.ac.uk, 33997, None)
+23/05/02 01:14:17 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, sharc-node173.shef.ac.uk, 33997, None)
+
+Task A
+
++------+-------+------+---------+
+|userId|movieId|rating|timestamp|
++------+-------+------+---------+
+|28507 |1176   |4.0   |789652004|
+|131160|21     |3.0   |789652009|
+|131160|47     |5.0   |789652009|
+|131160|1079   |3.0   |789652009|
+|20821 |32     |5.0   |822873600|
+|53434 |19     |1.0   |822873600|
+|85252 |2      |4.0   |822873600|
+|85252 |7      |5.0   |822873600|
+|85252 |10     |5.0   |822873600|
+|85252 |11     |5.0   |822873600|
+|85252 |12     |1.0   |822873600|
+|85252 |17     |5.0   |822873600|
+|85252 |19     |3.0   |822873600|
+|85252 |21     |4.0   |822873600|
+|85252 |22     |4.0   |822873600|
+|85252 |24     |3.0   |822873600|
+|85252 |32     |4.0   |822873600|
+|85252 |34     |5.0   |822873600|
+|85252 |36     |5.0   |822873600|
+|85252 |45     |3.0   |822873600|
++------+-------+------+---------+
+only showing top 20 rows
+
+
+ALS with Setting 1
+
+23/05/02 01:14:53 WARN InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+23/05/02 01:14:53 WARN InstanceBuilder$NativeBLAS: Failed to load implementation from:dev.ludovic.netlib.blas.ForeignLinkerBLAS
+23/05/02 01:14:53 WARN InstanceBuilder$NativeLAPACK: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+
+RMSE for 3 respective models: 0.8032 	 0.7767 	 0.7945 
+
+MSE for 3 respective models: 0.6451 	 0.6032 	 0.6312 
+
+MAE for 3 respective models: 0.6160 	 0.5911 	 0.6001 
+
+ALS with Setting 2
+
+
+RMSE for 3 respective models: 3.2654 	 3.1946 	 3.2749 
+
+MSE for 3 respective models: 10.6629 	 10.2055 	 10.7251 
+
+MAE for 3 respective models: 3.1065 	 3.0434 	 3.1265 
+
+Task B
+
+Largest clustes in Group 1: 6337, 5922, 5092, 4636 and 4065
+Largest clustes in Group 2: 7668, 6770, 6496, 6284 and 6195
+Largest clustes in Group 3: 12746, 9253, 7642, 7177 and 6288
+
+Movies in the Largest Cluster Split 1
+
++-------+------------------+
+|movieId|avg(rating)       |
++-------+------------------+
+|471    |3.639784946236559 |
+|496    |4.0               |
+|833    |4.0               |
+|1088   |3.8333333333333335|
+|1238   |3.0               |
++-------+------------------+
+only showing top 5 rows
+
+
+Movies in the Largest Cluster Split 2
+
++-------+------------------+
+|movieId|avg(rating)       |
++-------+------------------+
+|496    |2.8               |
+|737    |2.568161024702653 |
+|1084   |3.8045977011494254|
+|897    |3.6666666666666665|
+|623    |4.0               |
++-------+------------------+
+only showing top 5 rows
+
+
+Movies in the Largest Cluster Split 3
+
++-------+-----------------+
+|movieId|avg(rating)      |
++-------+-----------------+
+|471    |3.513480392156863|
+|148    |2.875            |
+|1088   |3.351258581235698|
+|496    |3.25             |
+|392    |3.0              |
++-------+-----------------+
+only showing top 5 rows
+
+
+Top Movies with Rating >= 4.0 Split 1
+
++-------+-----------------+
+|movieId|avg(rating)      |
++-------+-----------------+
+|496    |4.0              |
+|833    |4.0              |
+|858    |4.185185185185185|
+|897    |4.333333333333333|
+|623    |4.0              |
+|879    |4.5              |
+|1223   |5.0              |
+|53     |4.0              |
+|804    |4.0              |
+|898    |4.5              |
+|513    |4.0              |
+|1133   |4.0              |
+|321    |4.0              |
+|633    |4.2              |
+|857    |5.0              |
+|593    |4.249641662685141|
+|375    |4.0              |
+|1212   |5.0              |
+|950    |5.0              |
+|101    |4.666666666666667|
++-------+-----------------+
+only showing top 20 rows
+
+
+Top Movies with Rating >= 4.0 Split 2
+
++-------+------------------+
+|movieId|avg(rating)       |
++-------+------------------+
+|623    |4.0               |
+|858    |4.389021479713604 |
+|296    |4.309433962264151 |
+|857    |4.0               |
+|593    |4.38860103626943  |
+|115    |4.0               |
+|874    |4.0               |
+|28     |4.230769230769231 |
+|497    |4.137931034482759 |
+|988    |4.0               |
+|1085   |4.105263157894737 |
+|329    |4.0344827586206895|
+|246    |4.320754716981132 |
+|111    |4.247524752475248 |
+|47     |4.224832214765101 |
+|1145   |4.0               |
+|770    |4.0               |
+|792    |4.0               |
+|1137   |4.142857142857143 |
+|1089   |4.5               |
++-------+------------------+
+only showing top 20 rows
+
+
+Top Movies with Rating >= 4.0 Split 3
+
++-------+------------------+
+|movieId|avg(rating)       |
++-------+------------------+
+|858    |4.1923076923076925|
+|296    |4.0910714285714285|
+|853    |4.5               |
+|1212   |4.3229813664596275|
+|101    |4.078313253012048 |
+|28     |4.133333333333334 |
+|501    |4.046875          |
+|831    |4.1               |
+|844    |4.0               |
+|601    |4.25              |
+|685    |4.444444444444445 |
+|111    |4.029556650246305 |
+|47     |4.086626139817629 |
+|1207   |4.0032327586206895|
+|827    |4.0               |
+|665    |4.0606060606060606|
+|1172   |4.085597826086956 |
+|768    |4.0               |
+|139    |4.0               |
+|1273   |4.072463768115942 |
++-------+------------------+
+only showing top 20 rows
+
+
+Top Genres Split 1
+
+Drama : 247
+Comedy : 147
+Romance : 98
+Thriller : 89
+Action : 73
+Horror : 67
+Crime : 65
+Adventure : 48
+Mystery : 40
+Sci-Fi : 38
+
+Top Genres Split 2
+
+Drama : 292
+Comedy : 149
+Romance : 115
+Action : 76
+Thriller : 74
+Crime : 72
+Adventure : 65
+Mystery : 41
+War : 36
+Sci-Fi : 35
+
+Top Genres Split 3
+
+Drama : 889
+Comedy : 407
+Romance : 296
+Thriller : 194
+Crime : 191
+Documentary : 172
+Action : 154
+Adventure : 117
+Fantasy : 94
+Mystery : 90
