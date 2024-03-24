@@ -14,18 +14,11 @@ spark = SparkSession.builder \
 sc = spark.sparkContext
 sc.setLogLevel("WARN")
 
-print("\nTask A\n")
-#read ratings.csv and order by timestamp
-ratings = spark.read.load\
-        ('Data/ml-20m/ratings.csv', format = 'csv', inferSchema = "true", header = "true")\
-        .sort('timestamp').cache()
-ratings.show(20,False)
-myseed=28 #set seed
-
 '''
 Task A Time-split Recommendation: 
 
-Perform time-split recommendation using ALS-based matrix factorisation on the rating data.
+Perform time-split recommendation using ALS-based matrix factorisation on the rating data 'ratings.csv'.
+(Note that due to the size of the file, it has not been included to the repo.)
 
 First, sort all data in ascending order of timestamp and split so that earlier entries
 are used for training and later entries are used for testing.
@@ -35,6 +28,14 @@ For each split above, we consider two settings on which to train our models.
 Then we compute and report three metrics: RMSE, MSE, and MAE (3 metrics x 3 splits x 2 ALS settings = 18 numbers). 
 Lastly, we visualise these 18 numbers in ONE single figure.
 '''
+
+print("\nTask A\n")
+#read ratings.csv and order by timestamp
+ratings = spark.read.load\
+        ('Data/ml-20m/ratings.csv', format = 'csv', inferSchema = "true", header = "true")\
+        .sort('timestamp').cache()
+ratings.show(20,False)
+myseed=28 #set seed
 
 ratings_len = ratings.count()
 
